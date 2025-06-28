@@ -1,15 +1,19 @@
 {
+  "homepage": "https://godfreykevin070.github.io/Hueline-Enterprises-Lead-Management-System",
   "name": "hueline-enterprises-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vitejs/plugin-react": "^4.6.0",
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

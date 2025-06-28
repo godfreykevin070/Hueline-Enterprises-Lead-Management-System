@@ -30,27 +30,27 @@ function App() {
   const products = [
     {
       title: 'Paint Collection',
-      image: '/src/assets/products/img1.webp'
+      image: '/src/assets/images/products/img1.webp'
     },
     {
       title: 'Primers & Undercoats',
-      image: '/src/assets/products/img2.webp'
+      image: '/src/assets/images/products/img2.webp'
     },
     {
       title: 'Tools & Accessories',
-      image: '/src/assets/products/img3.webp'
+      image: '/src/assets/images/products/img3.webp'
     },
     {
       title: ' Thinners & Solvents',
-      image: '/src/assets/products/img4.webp'
+      image: '/src/assets/images/products/img4.webp'
     },
     {
       title: 'Decorative Finishes',
-      image: '/src/assets/products/img5.webp'
+      image: '/src/assets/images/products/img5.webp'
     },
     {
       title: 'Color Aids ',
-      image: '/src/assets/products/img6.webp'
+      image: '/src/assets/images/products/img6.webp'
     }
   ]
 
