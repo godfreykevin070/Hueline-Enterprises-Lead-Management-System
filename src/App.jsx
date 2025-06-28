@@ -56,7 +56,7 @@ function App() {
   const galleryItems = [
     {
       title: 'Exterior Facade',
-      image: '/Hueline-Enterprises-Lead-Management-System/public/assets/images/shop gallery/img1.webp',
+      image: '/Hueline-Enterprises-Lead-Management-System/assets/images/shop gallery/img1.webp',
       category: 'Exterior'
     },
     {
@@ -361,7 +361,7 @@ function App() {
 
         <div className="footer-section qr-code">
           <h3>📍 Find Us Easily!</h3>
-          <img src="/Hueline-Enterprises-Lead-Management-System/assets/images/Offline Dino Runner QR Code.webp" alt="QR Code" loading="lazy" />
+          <img src="/Hueline-Enterprises-Lead-Management-System/assets/images/Offline-Dino-Runner-QR-Code.webp" alt="QR Code" loading="lazy" />
           <p>Scan the QR code below to get the exact location of our company on your map. We're looking forward to welcoming you!</p>
         </div>
 
