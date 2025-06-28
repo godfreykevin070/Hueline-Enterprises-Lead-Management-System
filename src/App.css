@@ -55,7 +55,7 @@
 }
 
 #home {
-  background-image: url('/src/assets/images/homepage background image.webp');
+  background-image: url('/assets/images/homepage background image.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

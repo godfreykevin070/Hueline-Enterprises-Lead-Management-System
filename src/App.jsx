@@ -10,7 +10,6 @@ import 'swiper/css/pagination';
 import { Autoplay, EffectFade } from 'swiper/modules';
 SwiperCore.use([Navigation, Pagination]);
 
-
 function App() {
   const [formData, setFormData] = useState({
     name: '',
@@ -30,64 +29,64 @@ function App() {
   const products = [
     {
       title: 'Paint Collection',
-      image: '/src/assets/images/products/img1.webp'
+      image: 'assets/images/products/img1.webp'
     },
     {
       title: 'Primers & Undercoats',
-      image: '/src/assets/images/products/img2.webp'
+      image: 'assets/images/products/img2.webp'
     },
     {
       title: 'Tools & Accessories',
-      image: '/src/assets/images/products/img3.webp'
+      image: 'assets/images/products/img3.webp'
     },
     {
       title: ' Thinners & Solvents',
-      image: '/src/assets/images/products/img4.webp'
+      image: 'assets/images/products/img4.webp'
     },
     {
       title: 'Decorative Finishes',
-      image: '/src/assets/images/products/img5.webp'
+      image: 'assets/images/products/img5.webp'
     },
     {
       title: 'Color Aids ',
-      image: '/src/assets/images/products/img6.webp'
+      image: 'assets/images/products/img6.webp'
     }
   ]
 
   const galleryItems = [
     {
       title: 'Exterior Facade',
-      image: '/src/assets/shop gallery/img1.webp',
+      image: 'assets/images/shop gallery/img1.webp',
       category: 'Exterior'
     },
     {
       title: 'Opus Bar Experience',
-      image: '/src/assets/shop gallery/img2.webp',
+      image: 'assets/images/shop gallery/img2.webp',
       category: 'Commercial'
     },
     {
       title: 'Joy of Picking Paint',
-      image: '/src/assets/shop gallery/img3.webp',
+      image: 'assets/images/shop gallery/img3.webp',
       category: 'Experience'
     },
     {
       title: 'Consultation Services',
-      image: '/src/assets/shop gallery/img4.webp',
+      image: 'assets/images/shop gallery/img4.webp',
       category: 'Services'
     },
     {
       title: 'Paint Gallery Display',
-      image: '/src/assets/shop gallery/img5.webp',
+      image: 'assets/images/shop gallery/img5.webp',
       category: 'Showroom'
     },
     {
       title: 'Paint Collection',
-      image: '/src/assets/shop gallery/img6.webp',
+      image: 'assets/images/shop gallery/img6.webp',
       category: 'Products'
     },
     {
       title: 'Enterprise Gallery',
-      image: '/src/assets/shop gallery/img7.webp',
+      image: 'assets/images/shop gallery/img7.webp',
       category: 'Store'
     }
   ]
@@ -362,7 +361,7 @@ function App() {
 
         <div className="footer-section qr-code">
           <h3>📍 Find Us Easily!</h3>
-          <img src="/src/assets/images/Offline Dino Runner QR Code.webp" alt="QR Code" loading="lazy" />
+          <img src="assets/images/Offline Dino Runner QR Code.webp" alt="QR Code" loading="lazy" />
           <p>Scan the QR code below to get the exact location of our company on your map. We're looking forward to welcoming you!</p>
         </div>
 
