@@ -56,7 +56,7 @@ function App() {
   const galleryItems = [
     {
       title: 'Exterior Facade',
-      image: '/Hueline-Enterprises-Lead-Management-System/assets/images/shop gallery/img1.webp',
+      image: '/Hueline-Enterprises-Lead-Management-System/public/assets/images/shop gallery/img1.webp',
       category: 'Exterior'
     },
     {
