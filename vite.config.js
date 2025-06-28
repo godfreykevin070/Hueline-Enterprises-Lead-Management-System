@@ -1,5 +1,5 @@
 // import { defineConfig } from 'vite'
-// import react from '@vitejs/plugin-react-swc'
+import react from '@vitejs/plugin-react-swc'
 
 // // https://vite.dev/config/
 // export default defineConfig({
@@ -8,4 +8,5 @@
 
 export default {
   base: '/Hueline-Enterprises-Lead-Management-System/',
+  plugins: [react()],
 };
