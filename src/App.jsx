@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+import { ref, set } from "firebase/database";
+import { database } from "./firebase/firebase";
 import { Palette, Brush, Droplet, Home, Users, Sparkles, Shield, Phone, Mail, MapPin, Clock, MoveRight } from 'lucide-react';
 import './App.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,16 +17,35 @@ function App() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
 
   const handleInputChange = (e) => {
-    setFormData({...formData, [e.target.name]:[e.target.value]})
+    setFormData({ ...formData, [e.target.name]: [e.target.value] })
+  };
+
+  const saveData = async (e) => {
+    e.preventDefault();
+
+    if (window.gtag) {
+      window.gtag('event', 'generate_lead', {
+        value: 1,
+      });
+    }
+
+    set(ref(database, 'formData/'), formData)
+      .then(() => {
+        alert("Message Sent Successfully!");
+      })
+      .catch((error) => {
+        console.error("Error writing data: ", error);
+      });
   }
 
-  const homeInfo ={
-      title: 'Bring Your Walls to Life',
-      description: 'Discover a world of vibrant hues, premium finishes, and lasting impressions. At HueLine Enterprises, we blend cutting-edge technology with timeless craftsmanship to deliver exceptional paint solutions for every space — be it home, office, or industry.'
+  const homeInfo = {
+    title: 'Bring Your Walls to Life',
+    description: 'Discover a world of vibrant hues, premium finishes, and lasting impressions. At HueLine Enterprises, we blend cutting-edge technology with timeless craftsmanship to deliver exceptional paint solutions for every space — be it home, office, or industry.'
   }
 
   const products = [
@@ -150,8 +172,8 @@ function App() {
 
       {/* Home Section */}
       <div className='section' id='home'>
-          <h1 className="title">{homeInfo.title}</h1>
-          <p className="description">{homeInfo.description}</p>
+        <h1 className="title">{homeInfo.title}</h1>
+        <p className="description">{homeInfo.description}</p>
       </div>
 
       {/* Products Section */}
@@ -289,7 +311,7 @@ function App() {
               </div>
             </div>
           </div>
-          <form className='form'>
+          <form className='form' onSubmit={saveData}>
             <input
               type="text"
               name="name"
@@ -306,6 +328,13 @@ function App() {
               placeholder="Enter Your Email"
               required
             />
+            <select name="subject" value={formData.subject} onChange={handleInputChange} required>
+              <option defaultValue> -- select an option -- </option>
+              <option>Product Inquiry</option>
+              <option>Technical Support</option>
+              <option>General Feedback</option>
+              <option>Other</option>
+            </select>
             <textarea
               name="message"
               value={formData.message}
