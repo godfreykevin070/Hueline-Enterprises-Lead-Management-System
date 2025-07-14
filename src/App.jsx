@@ -14,12 +14,21 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 SwiperCore.use([Navigation, Pagination]);
 
 function App() {
+  const [formIsSubmitted,setFormIsSubmitted] = useState(false);
+  const formId = React.useMemo(() => crypto.randomUUID(), []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+
+  useEffect(() => {
+    const submitted = localStorage.getItem('formSubmitted');
+    if (submitted === 'true') {
+      setFormIsSubmitted(true);
+    }
+  }, []);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: [e.target.value] })
@@ -28,19 +37,24 @@ function App() {
   const saveData = async (e) => {
     e.preventDefault();
 
-    if (window.gtag) {
-      window.gtag('event', 'generate_lead', {
-        value: 1,
-      });
-    }
-
-    set(ref(database, 'formData/'), formData)
+    set(ref(database, 'formData/' + formId), formData)
       .then(() => {
         alert("Message Sent Successfully!");
+        localStorage.setItem('formSubmitted', 'true');
+        setFormIsSubmitted(true);
       })
       .catch((error) => {
         console.error("Error writing data: ", error);
       });
+
+    if (window.gtag) {
+      window.gtag('event', 'generate_lead', {
+        value: 1,
+      });
+      window.gtag('event', 'form_id', {
+        form_name: formId,
+      });
+    }
   }
 
   const homeInfo = {
@@ -311,6 +325,8 @@ function App() {
               </div>
             </div>
           </div>
+          {!formIsSubmitted 
+          ? 
           <form className='form' onSubmit={saveData}>
             <input
               type="text"
@@ -345,13 +361,13 @@ function App() {
             ></textarea>
             <button
               type="submit"
-              // disabled={isSubmitting}
               className="submit_btn"
             >
               Send Message
-              {/* {isSubmitting ? 'Sending...' : 'Send Message'} */}
             </button>
-          </form>
+          </form> 
+          :
+          <div style={{display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center'}}>You've already submitted the form.<br /> Thank you!</div>}
         </div>
       </div>
 

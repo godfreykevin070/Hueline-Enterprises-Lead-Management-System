@@ -2,10 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
 
-// import { getAuth } from "firebase/auth";
-
 const firebaseConfig = {
-  apiKey: "AIzaSyDOsetqlXEHmWQIHn5QEb2i-YRAQv99DMI",
+  apiKey: import.meta.env.VITE_API_KEY,
   authDomain: "hueline-enterprises-crm.firebaseapp.com",
   databaseURL: "https://hueline-enterprises-crm-default-rtdb.firebaseio.com",
   projectId: "hueline-enterprises-crm",
@@ -18,7 +16,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-// const auth = getAuth(app);
 const database  = getDatabase(app);
 
 
