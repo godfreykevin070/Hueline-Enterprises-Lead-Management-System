@@ -14,7 +14,7 @@ import { Autoplay, EffectFade } from 'swiper/modules';
 SwiperCore.use([Navigation, Pagination]);
 
 function App() {
-  const [formIsSubmitted,setFormIsSubmitted] = useState(false);
+  // const [formIsSubmitted,setFormIsSubmitted] = useState(false);
   const formId = React.useMemo(() => crypto.randomUUID(), []);
   const [formData, setFormData] = useState({
     name: '',
@@ -23,12 +23,12 @@ function App() {
     message: ''
   });
 
-  useEffect(() => {
-    const submitted = localStorage.getItem('formSubmitted');
-    if (submitted === 'true') {
-      setFormIsSubmitted(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const submitted = localStorage.getItem('formSubmitted');
+  //   if (submitted === 'true') {
+  //     setFormIsSubmitted(true);
+  //   }
+  // }, []);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: [e.target.value] })
@@ -48,11 +48,9 @@ function App() {
       });
 
     if (window.gtag) {
-      window.gtag('event', 'generate_lead', {
-        value: 1,
-      });
-      window.gtag('event', 'form_id', {
-        form_name: formId,
+      window.gtag('event', 'lead_form_id', {
+        form_id: formId,
+        value: 1
       });
     }
   }
@@ -325,8 +323,9 @@ function App() {
               </div>
             </div>
           </div>
-          {!formIsSubmitted 
-          ? 
+          {
+          // !formIsSubmitted 
+          // ? 
           <form className='form' onSubmit={saveData}>
             <input
               type="text"
@@ -366,8 +365,9 @@ function App() {
               Send Message
             </button>
           </form> 
-          :
-          <div style={{display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center'}}>You've already submitted the form.<br /> Thank you!</div>}
+          // :
+          // <div style={{display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center'}}>You've already submitted the form.<br /> Thank you!</div>
+          }
         </div>
       </div>
 
